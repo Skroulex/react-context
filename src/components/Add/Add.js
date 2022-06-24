@@ -1,8 +1,10 @@
 import React, {useContext, useState} from 'react';
 import {Box, Button, TextField} from "@mui/material";
 import {todoContext} from "../../contexts/todoContext";
+import {useNavigate} from "react-router-dom";
 
 const Add = () => {
+    const navigate = useNavigate()
     const {createTodo} = useContext(todoContext)
     const [todo, setTodo] = useState('')
 
@@ -11,7 +13,7 @@ const Add = () => {
             todo,
         }
         createTodo(newTodo)
-        console.log(newTodo)
+        navigate("/list")
     }
 
     return (
